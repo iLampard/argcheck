@@ -1,3 +1,9 @@
+<tr>
+  <td>Latest Release</td>
+  <td><img src="https://img.shields.io/pypi/v/argcheck.svg" alt="latest release" /></td>
+</tr>
+
+
 # argcheck
 
 A decorator based implementation of argument checks, whose code is largely referenced from [zipline/utils/input_validation](https://github.com/quantopian/zipline/blob/master/zipline/utils/input_validation.py), provides various functionality in argument validation.
