@@ -89,7 +89,7 @@ test(x=1, y=[3])
 ```
 
 
-##### *optional*: helper for use with *expect_types* when an input can be `type_` or `None`.
+##### *optional*: helper for use with *expect_types* when an input can be `type` or 'tuple of types' or `None`.
 
 ``` python
 isinstance({}, optional(dict))  # True
