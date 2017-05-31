@@ -47,33 +47,6 @@ def preprocess(*_unused, **processors):
         `func` is the the function for which we're processing args.
         `argname` is the name of the argument we're processing.
         `argvalue` is the value of the argument we're processing.
-    Usage
-    -----
-    >>> def _ensure_tuple(func, argname, arg):
-    ...     if isinstance(arg, tuple):
-    ...         return argvalue
-    ...     try:
-    ...         return tuple(arg)
-    ...     except TypeError:
-    ...         raise TypeError(
-    ...             "%s() expected argument '%s' to"
-    ...             " be iterable, but got %s instead." % (
-    ...                 func.__name__, argname, arg,
-    ...             )
-    ...         )
-    ...
-    >>> @preprocess(arg=_ensure_tuple)
-    ... def foo(arg):
-    ...     return arg
-    ...
-    >>> foo([1, 2, 3])
-    (1, 2, 3)
-    >>> foo("a")
-    ('a',)
-    >>> foo(2)
-    Traceback (most recent call last):
-        ...
-    TypeError: foo() expected argument 'arg' to be iterable, but got 2 instead.
     """
     if _unused:
         raise TypeError("preprocess() doesn't accept positional arguments")

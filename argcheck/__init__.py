@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from argcheck.preprocess import preprocess
+from argcheck.preprocess import (preprocess,
+                                 call)
 from argcheck.validation import (expect_strictly_bounded,
                                  expect_kinds,
                                  expect_element,
@@ -19,7 +20,9 @@ from argcheck.validation import (expect_strictly_bounded,
                                  optionally,
                                  optional)
 
-__all__ = ['preprocess',
+__all__ = ['__version__',
+           'preprocess',
+           'call',
            'expect_strictly_bounded',
            'expect_kinds',
            'expect_element',
@@ -38,3 +41,5 @@ __all__ = ['preprocess',
            'optionally',
            'optional'
            ]
+
+__version__ = '0.0.1'

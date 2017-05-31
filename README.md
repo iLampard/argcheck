@@ -1,6 +1,7 @@
 # argcheck
 
 A decorator based implementation of argument checks, whose code is largely referenced from [zipline/utils/input_validation](https://github.com/quantopian/zipline/blob/master/zipline/utils/input_validation.py), provides various functionality in argument validation.
+* *prepocessor*: decorator that applies pre-processors to the arguments of a function before calling the function
 * *expect_kinds*: decorator to check argument dtype kinds
 * *expect_types*: decorator to check argument types
 * *optional*: helper of *expect_types* to deal with default argument
@@ -21,9 +22,60 @@ from argcheck import *
 pip install argcheck
 ```
 
-### Example
+### Quick Start
+Two important decorators:
+* *prepocessor* accepts a dict that map the argument[key] to processor function[value], whose signature must be (func, argname, argvalue)
+
+    * For example, to process the financial returns data, one usually needs to convert from noncumulative-return to cumulative return, or vice versa. It can be done by prepocessor
+``` python
+
+# define a dict struture to store information
+return_dict_ = {'type': 'cumul', 'return': pd.Series([1.0, 2.0, 3.0])}
+
+# define the processor function
+def ensure_noncumul_return(func, argname, arg):
+    ret = {}
+    if not isinstance(arg, dict):
+        return
+    if arg['type'] == 'cumul':
+        ret['return'] = arg['return'].pct_change()
+        ret['type'] = 'noncumul'
+        return ret
+    else:
+        return arg
+
+# apply preprocess decorator to ensure the argument has noncumul return
+@preprocess(return_dict=ensure_noncumul_return)
+def calc_mean_return(return_dict):
+    return return_dict['return'], return_dict['return'].mean()
 
 
+calc_mean_return(return_dict=return_dict_)
+
+# 0 Nan
+# 1 1.0
+# 2 0.5
+#   0.75  <- mean value of return
+```
+
+
+* *expect_types*: together with *optional* provides an easy way to do argument type validation
+
+
+``` python
+@expect_types(y=optional(str, int))
+def foo(x, y=None):
+    return x, y
+
+
+foo(3) # Ok
+foo(3, 'a') # OK
+foo(3, [3])
+# TypeError: foo() expected a value of type str or int or NoneType for argument 'y',
+# but got list instead
+```
+
+### Detailed Examples
 
 ##### *expect_kinds*: decorator that verifies inputs have expected dtype kinds
 ``` python
@@ -54,7 +106,7 @@ def foo(x, y):
 foo(2, '3')  # (2, '3')
 
 
-# foo(2.0, '3')
+foo(2.0, '3')
 # Traceback (most recent call last):
 # ...
 # TypeError: ...foo() expected a value of type int for argument 'x',
