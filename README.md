@@ -1,3 +1,4 @@
+<table>
 <tr>
   <td>Latest Release</td>
   <td><img src="https://img.shields.io/pypi/v/argcheck.svg" alt="latest release" /></td>
@@ -7,6 +8,7 @@
   <td>Build</td>
   <td><img src="https://travis-ci.org/iLampard/argcheck.svg?branch=master" alt="build" /></td>
 </tr>
+</table>
 
 # argcheck
 
