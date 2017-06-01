@@ -3,6 +3,10 @@
   <td><img src="https://img.shields.io/pypi/v/argcheck.svg" alt="latest release" /></td>
 </tr>
 
+<tr>
+  <td>Build</td>
+  <td><img src="https://travis-ci.org/iLampard/argcheck.svg?branch=master" alt="build" /></td>
+</tr>
 
 # argcheck
 

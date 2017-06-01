@@ -9,6 +9,6 @@ install:
   - pip install coveralls
 # command to run tests
 script:
-  - coverage run --source=argcheck setup.py tests
+  - coverage run --source=argcheck setup.py test
 after_success:
   - coveralls
