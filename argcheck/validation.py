@@ -5,7 +5,6 @@
 from datetime import tzinfo
 from functools import partial, wraps
 from operator import attrgetter
-
 import pandas as pd
 import toolz.curried.operator as op
 from argcheck.preprocess import call, preprocess

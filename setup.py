@@ -18,8 +18,10 @@ setup(name=NAME,
       url=URL,
       packages=find_packages(),
       install_requires=[
+          'pandas',
           'numpy',
           'toolz',
       ],
       classifiers=['Programming Language :: Python',
-                   'Programming Language :: Python :: 2.7'])
+                   'Programming Language :: Python :: 2.7',
+                   'Programming Language :: Python :: 3.5'])

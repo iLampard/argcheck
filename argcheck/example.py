@@ -30,15 +30,17 @@ def ensure_noncumul_return(func, argname, arg):
     else:
         return arg
 
+
 # apply preprocess decorator to ensure the argument has noncumul return
 @preprocess(return_dict=ensure_noncumul_return)
 def calc_mean_return(return_dict):
     return return_dict['return'], return_dict['return'].mean()
 
+
 # define a dict struture to store information
 return_dict_ = {'type': 'cumul', 'return': pd.Series([1.0, 2.0, 3.0])}
 
-print calc_mean_return(return_dict=return_dict_)
+calc_mean_return(return_dict=return_dict_)
 
 
 @expect_types(y=optional(str, int))
@@ -46,9 +48,9 @@ def foo(x, y=None):
     return x, y
 
 
-foo(3) # Ok
-foo(3, 'a') # OK
-foo(3, [3]) # TypeError
+foo(3)  # Ok
+foo(3, 'a')  # OK
+foo(3, [3])  # TypeError
 
 
 def preprocessor(func, argname, arg):
@@ -124,9 +126,9 @@ test(x=3, y=5)
 # TypeError: __init__() expected a value of type int or str for argument 'y', but got list instead
 
 
-print isinstance({}, optional(dict))  # True
-print isinstance(None, optional(dict))  # True
-print isinstance(1, optional(dict, int))  # False
+isinstance({}, optional(dict))  # True
+isinstance(None, optional(dict))  # True
+isinstance(1, optional(dict, int))  # False
 
 
 class test2(object):
@@ -208,7 +210,7 @@ def floordiff(x, y):
     return x - y
 
 
-print floordiff(3.2, 2.5)
+floordiff(3.2, 2.5)
 
 
 @preprocess(x=coerce(str, int, base=2), y=coerce(str, int, base=2))
@@ -216,6 +218,6 @@ def add_binary_strings(x, y):
     return bin(x + y)[2:]
 
 
-print add_binary_strings('101', '001')
+add_binary_strings('101', '001')
 
-print coerce_string(('a', 'b'))
+coerce_string(('a', 'b'))
