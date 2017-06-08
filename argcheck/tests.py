@@ -17,7 +17,7 @@ from argcheck.validation import (expect_dimensions,
                                  optional,
                                  optionally,
                                  )
-from nose_parameterized import parameterized
+from parameterized import parameterized
 from numpy import arange, array, dtype
 from six import PY3
 

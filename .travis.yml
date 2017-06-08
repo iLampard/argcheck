@@ -6,7 +6,7 @@ python:
 # command to install dependencies
 install:
   - pip install coveralls
-  - pip install nose_parameterized
+  - pip install parameterized
   - python setup.py install
 # command to run tests
 script:
