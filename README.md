@@ -8,7 +8,15 @@
   <td>Build</td>
   <td><img src="https://travis-ci.org/iLampard/argcheck.svg?branch=master" alt="build" /></td>
 </tr>
+
+<tr>
+  <td>Python version</td>
+  <td><img src="https://img.shields.io/badge/python-2.7-blue.svg"/>   <img src="https://img.shields.io/badge/python-3.5-blue.svg"/></td>
+  </tr>
+
 </table>
+
+
 
 # argcheck
 
