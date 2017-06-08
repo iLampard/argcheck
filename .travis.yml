@@ -9,6 +9,6 @@ install:
   - python setup.py install
 # command to run tests
 script:
-  - trail argcheck
+ - coverage run --source=argcheck setup.py test
 after_success:
   - coveralls
