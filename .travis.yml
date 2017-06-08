@@ -5,10 +5,10 @@ python:
   - '3.5'
 # command to install dependencies
 install:
-  - pip install argcheck
   - pip install coveralls
+  - python setup.py install
 # command to run tests
 script:
-  - coverage run --source=argcheck setup.py test
+  - trail argcheck
 after_success:
   - coveralls
