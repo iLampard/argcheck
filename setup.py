@@ -5,7 +5,7 @@ from setuptools import setup
 
 PACKAGE = 'argcheck'
 NAME = 'argcheck'
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 DESCRIPTION = 'Argument check decorator'
 AUTHOR = 'iLampard'
 URL = 'https://github.com/iLampard/argcheck'

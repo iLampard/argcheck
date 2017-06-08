@@ -50,7 +50,9 @@ def foo(x, y=None):
 
 foo(3)  # Ok
 foo(3, 'a')  # OK
-foo(3, [3])  # TypeError
+
+
+# foo(3, [3])  # TypeError
 
 
 def preprocessor(func, argname, arg):
@@ -71,12 +73,6 @@ f(1)  # call with int
 #    TypeError: arg must be int
 f(None) is None  # call with explicit None
 #    True
-
-
-
-
-
-
 
 
 from numpy import int64, int32, float32
